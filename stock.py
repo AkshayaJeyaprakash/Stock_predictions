@@ -4,7 +4,7 @@ warnings.filterwarnings('ignore')
 import numpy as np 
 import pandas as pd
 import matplotlib.pyplot as plt
-from statsmodels.tsa.arima_model import ARMA
+from statsmodels.tsa.arima_model import ARIMA
 from sklearn.metrics import mean_squared_error
 import streamlit as st
 
