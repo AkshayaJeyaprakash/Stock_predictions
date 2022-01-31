@@ -35,7 +35,7 @@ elif choice =="ABOUT ME":
     st.write("MORE THE AMOUNT OF DATA GIVEN AS AN INPUT, MORE ACCURATE THE PREDICTIONS ARE !!! ")
     st.write(" ")
     st.write("THE HISTORY OF STOCK DATA OF A PARTICULAR STOCK MUST BE UPLADED AS .XLS OR .CSV...\nTHE .CSV OR THE .XLS FILE UPLOADED MUST STRICTLY OBEY THE FORMAT GIVEN BELOW")
-    st.image("https://i.ibb.co/7kdKm0h/image.png")
+    st.image("https://github.com/AkshayaJeyaprakash/Stock_predictions/blob/main/FILE.png")
 
 
     
@@ -80,7 +80,4 @@ def predict_stock(df):
     plt.title("CLOSING")
     plt.show();
     st.pyplot(f)
-
-def instructions():
-    print("coming soon...")
     
