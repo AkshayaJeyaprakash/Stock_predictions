@@ -37,6 +37,8 @@ def predict_stock(df):
         predictions2.append(yhat2)
         history2.append(yhat2)
         st.write('predicted closing value = %f' % (yhat2),"\n")
+    st.write(" ")
+    st.write("THE PLOT OF OPENING, CLOSING VALUES")
     f = plt.figure()
     f.set_figwidth(12)
     f.set_figheight(4)
