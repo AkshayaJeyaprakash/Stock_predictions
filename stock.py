@@ -21,7 +21,7 @@ def predict_stock(df):
     history2 = [x for x in train2]
     predictions1 = list()
     predictions2 = list()
-    for t in range(30):
+    for t in range(2):
         model1 = SARIMAX(history1, order=(1, 1, 1), seasonal_order=(0,0,0,0))
         model_fit1 = model1.fit(disp=False)
         output1 = model_fit1.forecast()
