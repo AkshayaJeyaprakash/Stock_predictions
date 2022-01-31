@@ -7,38 +7,6 @@ import matplotlib.pyplot as plt
 from statsmodels.tsa.arima_model import ARMA
 from sklearn.metrics import mean_squared_error
 import streamlit as st
-#import xlrd
-#import csv
-
-menu = ["ABOUT ME","PREDICT YOUR STOCK"]
-choice = st.sidebar.selectbox("Menu",menu)
-if choice=="PREDICT YOUR STOCK":
-    st.title("PREDICT YOUR STOCK")
-    st.subheader("Done by: Akshaya Jeyaprakash")
-    f = st.file_uploader("Choose a csv or excel file")
-    if f is not None:
-        try:
-            df = pd.read_excel(f)
-        except:
-            try:
-                df = pd.read_csv(f)
-            except: 
-                st.warning("you need to upload a csv or excel file.")
-        predict_stock(df)
-
-elif choice =="ABOUT ME":
-    st.title("PREDICT YOUR STOCK")
-    st.subheader("Done by: Akshaya Jeyaprakash")
-    st.write(" ")
-    st.write("THIS WEB APPLICATION WILL PREDICT THE VALUE OF A PARTICULAR STOCK FOR NEXT 10 DAYS\nFROM THE DATA WHICH IS SUPPLIED AS INPUT TO IT ")
-    st.write(" ")
-    st.write("MORE THE AMOUNT OF DATA GIVEN AS AN INPUT, MORE ACCURATE THE PREDICTIONS ARE !!! ")
-    st.write(" ")
-    st.write("THE HISTORY OF STOCK DATA OF A PARTICULAR STOCK MUST BE UPLADED AS .XLS OR .CSV...\nTHE .CSV OR THE .XLS FILE UPLOADED MUST STRICTLY OBEY THE FORMAT GIVEN BELOW")
-    st.image("FILE.png")
-
-
-    
 
 def predict_stock(df):
     date = df['date']
@@ -81,3 +49,35 @@ def predict_stock(df):
     plt.show();
     st.pyplot(f)
     
+
+
+menu = ["ABOUT ME","PREDICT YOUR STOCK"]
+choice = st.sidebar.selectbox("Menu",menu)
+if choice=="PREDICT YOUR STOCK":
+    st.title("PREDICT YOUR STOCK")
+    st.subheader("Done by: Akshaya Jeyaprakash")
+    f = st.file_uploader("Choose a csv or excel file")
+    if f is not None:
+        try:
+            df = pd.read_excel(f)
+        except:
+            try:
+                df = pd.read_csv(f)
+            except: 
+                st.warning("you need to upload a csv or excel file.")
+        predict_stock(df)
+
+elif choice =="ABOUT ME":
+    st.title("PREDICT YOUR STOCK")
+    st.subheader("Done by: Akshaya Jeyaprakash")
+    st.write(" ")
+    st.write("THIS WEB APPLICATION WILL PREDICT THE VALUE OF A PARTICULAR STOCK FOR NEXT 10 DAYS\nFROM THE DATA WHICH IS SUPPLIED AS INPUT TO IT ")
+    st.write(" ")
+    st.write("MORE THE AMOUNT OF DATA GIVEN AS AN INPUT, MORE ACCURATE THE PREDICTIONS ARE !!! ")
+    st.write(" ")
+    st.write("THE HISTORY OF STOCK DATA OF A PARTICULAR STOCK MUST BE UPLADED AS .XLS OR .CSV...\nTHE .CSV OR THE .XLS FILE UPLOADED MUST STRICTLY OBEY THE FORMAT GIVEN BELOW")
+    st.image("FILE.png")
+
+
+    
+
