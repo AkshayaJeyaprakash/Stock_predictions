@@ -5,6 +5,7 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 from statsmodels.tsa.arima_model import ARIMA
+from statsmodels.tsa.statespace.sarimax import SARIMAX
 from sklearn.metrics import mean_squared_error
 import streamlit as st
 
@@ -21,7 +22,7 @@ def predict_stock(df):
     predictions1 = list()
     predictions2 = list()
     for t in range(10):
-        model1 = ARIMA(history1, order=(5,1,0))
+        model1 = SARIMAX(history1, order=(1, 1, 1), seasonal_order=(0,0,0,0))
         model_fit1 = model1.fit(disp=False)
         output1 = model_fit1.forecast()
         yhat1 = output1[0]
@@ -30,7 +31,7 @@ def predict_stock(df):
         st.write("DAY: ",t+1)
         st.write('predicted opening value = %f' % (yhat1))
         
-        model2 = ARIMA(history2, order=(5,1,0))
+        model2 = SARIMAX(history2, order=(1, 1, 1), seasonal_order=(0,0,0,0))
         model_fit2 = model2.fit(disp=False)
         output2 = model_fit2.forecast()
         yhat2 = output2[0]
